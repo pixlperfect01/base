@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function to(){
+      var L=document.getElementById('inpt2').value;
+var y=document.getElementById('from').value;
+var f=0;
+if(y=='1')
+y=1;
+if(y=='2')
+y=2;
+if(y=='3')
+y=3;
+if(y=='4')
+y=4;
+if(y=='5')
+y=5;
+if(y=='6')
+y=6;
+if(y=='7')
+y=7;
+if(y=='8')
+y=8;
+if(y=='9')
+y=9;
+var conv2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+for(var i = 0;i<conv2.length;i++){
+if(L.length>=27)
+break;
+L='0'+L;
+}
+for(var i = L.length-1;i>=0;i--){
+conv2[i]=L.charAt(i);
+}
+for(var i = conv2.length-1;i>=0;i--){
+if(conv2[i]=='0')
+conv2[i]=0;
+if(conv2[i]=='1')
+conv2[i]=1;
+if(conv2[i]=='2')
+conv2[i]=2;
+if(conv2[i]=='3')
+conv2[i]=3;
+if(conv2[i]=='4')
+conv2[i]=4;
+if(conv2[i]=='5')
+conv2[i]=5;
+if(conv2[i]=='6')
+conv2[i]=6;
+if(conv2[i]=='7')
+conv2[i]=7;
+if(conv2[i]=='8')
+conv2[i]=8;
+if(conv2[i]=='9')
+conv2[i]=9;
+}
+var conv=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+conv[conv.length-1]=y;
+for(var i = conv.length-2;i>=0;i--){
+conv[i]=conv[i+1]*(y+1);
+}
+console.log(conv);
+for(var i = 0;i<=conv.length-1;i++){
+f+=((conv[i])/y)*conv2[i];
+console.log(f);
+}
+console.log(conv2);
+console.log(f);
+if(f){
+document.getElementById('output').innerHTML=f;
+}else{
+document.getElementById('output').innerHTML="Invalid Number";
+}
+}
+      
+      
+    </script>
+  </head>
+  <body>
+    <h3>From Decimal</h3>
+    <input type="text" id="inpt1">To Base
+    <select id="to">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <input type="submit" value="Convert" onclick="from()">
+    <br>
+    <br>
+    <br>
+    <h3>To Decimal</h3>
+    <input type="text" id="inpt2" maxlength="27">From Base
+    <select id="from">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <input type="submit" value="Convert" onclick="to()">
+    <br>
+    <p id="output"></p>
+  </body>
+</html>
